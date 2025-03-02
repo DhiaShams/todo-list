@@ -2,13 +2,17 @@ import './App.css';
 import Header from "./MyComponents/Header";
 import {Todos} from "./MyComponents/Todos";
 import {Footer} from "./MyComponents/Footer";
+import React, { useState } from 'react';
 
 function App() {
   const onDelete=(todo)=>{
     console.log("I am on delete of todo",todo);
+    setTodos(todos.filter((e)=>{
+      return e!==todo;
+    }));
   }
 
-  let todos=[
+  const [todos, setTodos] = useState([
     {
       sno:1,
       title:"todos list project",
@@ -20,11 +24,11 @@ function App() {
       desc:"PPT pending..."
     },
     {
-      sno:1,
+      sno:3,
       title:"Ritm",
       desc:"Lyric extraction from audio.. download not done!"
     }
-  ]
+  ]);
   return (
     <>
       <Header title="My Todos List" searchBar={false}/>
