@@ -4,6 +4,10 @@ import {Todos} from "./MyComponents/Todos";
 import {Footer} from "./MyComponents/Footer";
 
 function App() {
+  const onDelete=(todo)=>{
+    console.log("I am on delete of todo",todo);
+  }
+
   let todos=[
     {
       sno:1,
@@ -24,7 +28,7 @@ function App() {
   return (
     <>
       <Header title="My Todos List" searchBar={false}/>
-      <Todos todos={todos}/>
+      <Todos todos={todos} onDelete={onDelete}/>
       <Footer/>
     </>
   );
